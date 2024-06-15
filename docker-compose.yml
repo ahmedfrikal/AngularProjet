@@ -1,0 +1,14 @@
+version: '3.8'  # Version de Docker Compose à utiliser
+
+services:
+  angular-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile  # Spécifie le chemin vers votre Dockerfile
+    container_name: angular-app  # Nom du conteneur
+    ports:
+      - "4220:4200"  # Mappage du port 4200 du conteneur au port 4200 de l'hôte
+    volumes:
+      - .:/app  # Montage du répertoire local courant dans le conteneur (facultatif, selon vos besoins)
+    environment:
+      - NODE_ENV=production  # Exemple d'une variable d'environnement (facultatif)
